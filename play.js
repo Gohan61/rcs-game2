@@ -1,9 +1,12 @@
+let rounds = 5;
 let playerWins = 0;
 let computerWins = 0;
 let paperButton = document.createElement("button");
 let scissorButton = document.createElement("button");
 let rockButton = document.createElement("button");
 let container = document.createElement("div");
+let resultContainer = document.createElement("div");
+let finalResult = document.createElement("div");
 
 paperButton.textContent = "Paper";
 scissorButton.textContent = "Scissors";
@@ -14,15 +17,8 @@ function getComputerChoice() {
   return computerPick[Math.floor(Math.random() * 3)];
 }
 
-/*
-function getPlayerChoice(choice) {
-  let playerPick = prompt("Pick either rock, paper or scissors", "");
-  return playerPick.toLowerCase();
-  return choice;
-}
-*/
-
 function playGame(playerSelection, computerSelection) {
+  gameRounds();
   if (playerSelection === computerSelection) {
     return "Draw! Nobody wins";
   } else if (playerSelection === "rock" && computerSelection === "paper") {
@@ -46,28 +42,34 @@ function playGame(playerSelection, computerSelection) {
   }
 }
 
-function game() {
+(function game() {
   paperButton.addEventListener("click", () => {
-    console.log(playGame("paper", getComputerChoice()));
+    resultContainer.textContent = playGame("paper", getComputerChoice());
   });
   rockButton.addEventListener("click", () => {
-    console.log(playGame("rock", getComputerChoice()));
+    resultContainer.textContent = playGame("rock", getComputerChoice());
   });
   scissorButton.addEventListener("click", () => {
-    console.log(playGame("scissors", getComputerChoice()));
+    resultContainer.textContent = playGame("scissors", getComputerChoice());
   });
-  //	for (let i=0; i < 5; i++) {
-  //  console.log(playGame(getPlayerChoice(), getComputerChoice()));
-  /*
-} if (playerWins > computerWins) {
-		console.log('Player wins the game');
-	} else { console.log('Computer wins the game'); }
-	*/
+})();
+
+function gameRounds() {
+  rounds--;
+  if (rounds !== 0) {
+    finalResult.textContent = "";
+  } else if (rounds === 0 && playerWins > computerWins) {
+    finalResult.textContent = "Player wins the game";
+    rounds = 5;
+  } else if (rounds === 0 && computerWins > playerWins) {
+    finalResult.textContent = "Computer wins the game";
+    rounds = 5;
+  }
 }
 
-console.log(game());
-
 document.body.appendChild(container);
+document.body.appendChild(resultContainer);
+document.body.appendChild(finalResult);
 container.appendChild(paperButton);
 container.appendChild(rockButton);
 container.appendChild(scissorButton);
