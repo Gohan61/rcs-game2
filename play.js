@@ -1,3 +1,4 @@
+//Rounds need to be adjusted in gameRounds() as well if changed
 let rounds = 5;
 let playerWins = 0;
 let computerWins = 0;
@@ -66,6 +67,33 @@ function gameRounds() {
     rounds = 5;
   }
 }
+
+//CSS styling
+[paperButton, rockButton, scissorButton].forEach((el) =>
+  el.classList.add("button")
+);
+
+[paperButton, rockButton, scissorButton].forEach((el) =>
+  el.setAttribute(
+    "style",
+    "color: white; background: blue; font-size: 5em; font-weight: bold; border-radius: 10px; padding: 0 20px"
+  )
+);
+
+container.setAttribute(
+  "style",
+  "display: flex; justify-content: center; gap: 20px; margin-top: 30px"
+);
+
+resultContainer.setAttribute(
+  "style",
+  "display: flex; justify-content: center; font-size: 3em; color: purple; margin-top: 30px"
+);
+
+finalResult.setAttribute(
+  "style",
+  "display: flex; justify-content: center; font-size: 4em; color: white; background: linear-gradient(45deg, green, blue); border-radius: 20px; margin-top: 20px"
+);
 
 document.body.appendChild(container);
 document.body.appendChild(resultContainer);
