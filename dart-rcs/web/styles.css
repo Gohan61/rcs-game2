@@ -1,14 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
-html, body {
-  width: 100%;
+html,
+body {
+  width: 300px;
   height: 100%;
-  margin: 0;
+  margin: 20px auto 0 auto;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-#output {
-  padding: 20px;
-  text-align: center;
+body button {
+  margin-bottom: 10px;
+  width: 150px;
+  padding: 15px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+body button:first-child {
+  background-color: antiquewhite;
+}
+
+body button:nth-child(2) {
+  background-color: chocolate;
+}
+
+body button:nth-child(3) {
+  background-color: burlywood;
+}
+
+.roundResult {
+  font-style: italic;
+}
+
+.scoreContainer {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(#e66465, #9198e5);
+  border-radius: 10px;
+}
+
+.scoreContainer p:not(:empty) {
+  padding: 0 10px 0 10px;
+}
+
+.finalResult {
+  font-size: 1.1em;
+  color: red;
+  font-weight: bold;
 }

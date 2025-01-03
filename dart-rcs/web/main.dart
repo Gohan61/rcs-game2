@@ -114,6 +114,10 @@ class HTMLElements {
     rockButton.textContent = 'Rock';
     newGame.textContent = 'New game';
 
+    roundResult.classList.add('roundResult');
+    scoreContainer.classList.add('scoreContainer');
+    finalResult.classList.add('finalResult');
+
     var nodes = [
       paperButton,
       scissorButton,
